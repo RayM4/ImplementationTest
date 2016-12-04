@@ -59,7 +59,60 @@ public class BinaryTree {
 
     public Integer remove(int data) {
         if (values.contains(data)) {
+            TreeNode node = new TreeNode(data);
+            boolean left;
+            TreeNode curr;
+            TreeNode prev = head;
 
+            if (head.compareTo(node) > 0) {
+                curr = head.left;
+                left = true;
+            } else {
+                curr = head.right;
+                left = false;
+            }
+
+            //children
+            TreeNode nextLeft = curr.left;
+            TreeNode nextRight = curr.right;
+
+            while (curr.data != data) {
+                if (curr.compareTo(node) > 0) {
+                    prev = curr;
+                    curr = curr.left;
+                    left = true;
+                }
+                else {
+                    prev = curr;
+                    curr = curr.right;
+                    left = false;
+                }
+                nextLeft = curr.left;
+                nextRight = curr.right;
+            }
+
+            if (left) {
+                if (nextLeft != null) {
+                    prev.left = nextLeft;
+                    nextLeft.right = nextRight;
+                } else if (nextRight != null) {
+                    prev.left = nextRight;
+                } else {
+                    prev.left = null;
+                }
+            }
+            else {
+                if (nextLeft != null) {
+                    prev.right = nextLeft;
+                    nextLeft.right = nextRight;
+                } else if (nextRight != null) {
+                    prev.right = nextRight;
+                } else {
+                    prev.right = null;
+                }
+            }
+
+            values.remove(data);
         }
         return null;
     }
