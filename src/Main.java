@@ -1,4 +1,5 @@
 import DataStructure.BinaryTree;
+import DataStructure.CircularLinkList;
 import DataStructure.LinkList;
 
 import java.util.ArrayList;
@@ -41,6 +42,11 @@ public class Main {
         System.out.println("------");
         LinkList copy = list.copyOfList();
         copy.printList();
+
+        System.out.println("------");
+        CircularLinkList circle = new CircularLinkList();
+        addToLinkList(circle);
+        circle.printList();
     }
 
     private static void addToTree(BinaryTree tree) {
@@ -49,6 +55,11 @@ public class Main {
     }
 
     private static void addToLinkList(LinkList list) {
+        for (int i : DATA_SET)
+            list.add(i);
+    }
+
+    private static void addToLinkList(CircularLinkList list) {
         for (int i : DATA_SET)
             list.add(i);
     }
