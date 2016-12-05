@@ -3,16 +3,13 @@ package DataStructure;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by ray on 12/4/2016.
- */
+
 public class BinaryTree {
     private TreeNode head;
     private Set<Integer> values;
 
     public BinaryTree(int data) {
-        TreeNode node = new TreeNode(data);
-        this.head = node;
+        this.head = new TreeNode(data);
         this.values = new HashSet<>();
         values.add(data);
     }
@@ -121,7 +118,7 @@ public class BinaryTree {
         printNode(head, 0);
     }
 
-    public void printNode(TreeNode node, int iter) {
+    private void printNode(TreeNode node, int iter) {
         System.out.println(node.data);
         if (node.left != null) {
             System.out.print(numTabs(iter)+"Left: ");

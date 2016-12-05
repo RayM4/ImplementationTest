@@ -37,4 +37,32 @@ public class LinkList {
 
     public Node getHead() {return head;}
 
+    public LinkList copyOfListReversed() {
+        LinkList list = new LinkList();
+        list.add(head.getData());
+        return deepCopy(head, list);
+    }
+
+    public LinkList copyOfList() {
+        return this.copyOfListReversed().copyOfListReversed();
+    }
+
+    private LinkList deepCopy(Node originalNode, LinkList list) {
+        if (originalNode.getNext() == null) {
+            return list;
+        }
+        Node n = new Node(originalNode.getNext().getData());
+        list.add(n);
+        return deepCopy(originalNode.getNext(), list);
+    }
+
+    public void printList() {
+        Node curr = head;
+        while(curr.getNext() != null) {
+            System.out.println(curr.getData());
+            curr = curr.getNext();
+        }
+        System.out.println(curr.getData());
+    }
+
 }

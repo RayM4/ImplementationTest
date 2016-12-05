@@ -1,4 +1,5 @@
 import DataStructure.BinaryTree;
+import DataStructure.LinkList;
 
 import java.util.ArrayList;
 
@@ -26,15 +27,30 @@ public class Main {
 //        int num = 10000000;
 //        System.out.println(num);
 
+        System.out.println("------");
+
         BinaryTree tree = new BinaryTree(50);
         addToTree(tree);
         tree.printTree();
+
+        System.out.println("------");
+        LinkList list = new LinkList();
+        addToLinkList(list);
+        list.printList();
+
+        System.out.println("------");
+        LinkList copy = list.copyOfList();
+        copy.printList();
     }
 
     private static void addToTree(BinaryTree tree) {
-        for (int i : DATA_SET) {
+        for (int i : DATA_SET)
             tree.add(i);
-        }
+    }
+
+    private static void addToLinkList(LinkList list) {
+        for (int i : DATA_SET)
+            list.add(i);
     }
 
 }
