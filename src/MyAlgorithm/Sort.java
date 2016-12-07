@@ -2,14 +2,9 @@ package MyAlgorithm;
 
 import java.util.Random;
 
-/**
- * Created by ray on 12/5/2016.
- */
 public class Sort {
-    public Sort() {}
-
     //bubble sort
-    public int[] bubbleSort(int[] arr) {
+    public static int[] bubbleSort(int[] arr) {
         boolean switching;
         do {
             switching = false;
@@ -26,7 +21,7 @@ public class Sort {
     }
 
     //normal quick sort
-    public void normalQSort(int[] arr, int left, int right) {
+    public static void normalQSort(int[] arr, int left, int right) {
         if (left < right) {
             int idx = normalPartition(arr, left, right);
             normalQSort(arr, left, idx - 1);
@@ -34,7 +29,7 @@ public class Sort {
         }
     }
 
-    private int normalPartition(int[] arr, int left, int right) {
+    private static int normalPartition(int[] arr, int left, int right) {
         int pivot = arr[right];
         int hold = left;
         for (int i = left; i < right; i++) {
@@ -49,7 +44,7 @@ public class Sort {
 
 
     //random pivot quick sort
-    public void randQSort(int[] arr, int left, int right) {
+    public static void randQSort(int[] arr, int left, int right) {
         if (left < right) {
             int idx = partition(arr, left, right);
             randQSort(arr, left, idx - 1);
@@ -57,7 +52,7 @@ public class Sort {
         }
     }
 
-    private int partition(int[] arr, int left, int right) {
+    private static int partition(int[] arr, int left, int right) {
         int pivot = selectPivot(left, right);
         swap(arr, pivot, right);
         pivot = right;
@@ -73,12 +68,13 @@ public class Sort {
         return storedIndex;
     }
 
-    private int selectPivot(int low, int high) {
+    private static int selectPivot(int low, int high) {
         Random rand = new Random();
         return rand.nextInt((high-low) + 1) + low;
     }
 
-    private void swap(int[] arr, int a, int b) {
+    //swap function
+    private static void swap(int[] arr, int a, int b) {
         int hold = arr[a];
         arr[a] = arr[b];
         arr[b] = hold;

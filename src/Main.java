@@ -1,7 +1,9 @@
 import DataStructure.BinaryTree;
 import DataStructure.CircularLinkList;
 import DataStructure.LinkList;
+import MyAlgorithm.Search;
 import MyAlgorithm.Sort;
+
 
 public class Main {
 
@@ -10,9 +12,12 @@ public class Main {
     };
 
     public static void main(String[] args) {
+//        test_Strings();
+//        test_DataStructures();
         test_Algorithms();
     }
 
+    //Helpers
     private static void addToTree(BinaryTree tree) {
         for (int i : DATA_SET)
             tree.add(i);
@@ -35,7 +40,7 @@ public class Main {
         System.out.print("\n");
     }
 
-    //TEST
+    //TEST (Not going to write test cases)
     private static void test_DataStructures() {
         System.out.println("------");
 
@@ -59,21 +64,26 @@ public class Main {
     }
 
     public static void test_Strings() {
-        System.out.println("Hello World!");
-
+        System.out.println("Palindrome");
         System.out.println(Practice.StringExtender.isPalindrome("Eevee"));
         System.out.println(Practice.StringExtender.isPalindrome("Earth"));
         System.out.println(Practice.StringExtender.isPalindrome("aaaaaaaPaaaaaaa"));
-        String a = "abc";
-        String a2 = "bbbb";
-        String b = "baikl;ksdlaksla";
-        String c = "Attt";
-        System.out.println(a.compareTo(a2));
-        System.out.println(a.compareToIgnoreCase(c));
-        System.out.println(c.compareToIgnoreCase(b));
-        System.out.println(c.compareToIgnoreCase(a));
-        int num = 10000000;
-        System.out.println(num);
+
+        System.out.println("-----------");
+        System.out.println("Anagrams");
+        System.out.println(Practice.StringExtender.isAnagramNoSort("Dictionary", "Indicatory"));
+        System.out.println(Practice.StringExtender.isAnagramNoSort("Apollo", "Artemis"));
+        System.out.println(Practice.StringExtender.isAnagramNoSort("Listen", "Silent"));
+        System.out.println(Practice.StringExtender.isAnagramNoSort("Witch", "Wizard"));
+
+//        String a = "abc";
+//        String a2 = "bbbb";
+//        String b = "baikl;ksdlaksla";
+//        String c = "Attt";
+//        System.out.println(a.compareTo(a2));
+//        System.out.println(a.compareToIgnoreCase(c));
+//        System.out.println(c.compareToIgnoreCase(b));
+//        System.out.println(c.compareToIgnoreCase(a));
     }
 
     private static void test_Algorithms() {
@@ -82,8 +92,7 @@ public class Main {
         System.out.println("BuubleSort");
         printArray(unsortedArray);
 
-        Sort mySort = new Sort();
-        int[] myBubbleSort = mySort.bubbleSort(unsortedArray);
+        int[] myBubbleSort = Sort.bubbleSort(unsortedArray);
 
         printArray(myBubbleSort);
 
@@ -93,7 +102,7 @@ public class Main {
         int[] unsortedArray2 = { 10, 5, 11, 16, 7, 15, 49, 19 };
         printArray(unsortedArray2);
 
-        mySort.normalQSort(unsortedArray2, 0, unsortedArray2.length-1);
+        Sort.normalQSort(unsortedArray2, 0, unsortedArray2.length-1);
         printArray(unsortedArray2);
 
         System.out.println("---------------------------");
@@ -102,8 +111,44 @@ public class Main {
         int[] unsortedArray3 = { 10, 5, 11, 16, 7, 15, 49, 19 };
         printArray(unsortedArray3);
 
-        mySort.randQSort(unsortedArray3, 0, unsortedArray3.length-1);
+        Sort.randQSort(unsortedArray3, 0, unsortedArray3.length-1);
         printArray(unsortedArray3);
+
+        System.out.println("---------------------------");
+        BinaryTree tree = new BinaryTree(50);
+        addToTree(tree);
+        tree.printTree();
+
+        System.out.println("\nSearch - DFS");
+        int dfsSuccess1 = Search.DFS(tree, 35).getData();
+        int dfsSuccess2 = Search.DFS(tree, 49).getData();
+        int dfsSuccess3 = Search.DFS(tree, 100).getData();
+        System.out.println(dfsSuccess1);
+        System.out.println(dfsSuccess2);
+        System.out.println(dfsSuccess3);
+
+        try {
+            int dfsFail1 = Search.DFS(tree, 99).getData();
+            System.out.println(dfsFail1);
+        } catch (NullPointerException e) {
+            System.out.println("DFS returned null");
+        }
+
+        System.out.println("\nSearch - BFS");
+        int bfsSuccess1 = Search.BFS(tree, 35).getData();
+        int bfsSuccess2 = Search.BFS(tree, 49).getData();
+        int bfsSuccess3 = Search.BFS(tree, 100).getData();
+        System.out.println(bfsSuccess1);
+        System.out.println(bfsSuccess2);
+        System.out.println(bfsSuccess3);
+
+        try {
+            int bfsFail1 = Search.BFS(tree, 99).getData();
+            System.out.println(bfsFail1);
+        } catch (NullPointerException e) {
+            System.out.println("BFS returned null");
+        }
     }
+
 
 }

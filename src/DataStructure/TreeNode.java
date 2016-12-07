@@ -14,6 +14,12 @@ public class TreeNode implements Comparable<TreeNode>{
         this.right = null;
     }
 
+    public TreeNode() {
+        this.data = 0;
+        this.left = null;
+        this.right = null;
+    }
+
     @Override
     public int compareTo(TreeNode n) {
         if (n.data > data) {
@@ -23,5 +29,9 @@ public class TreeNode implements Comparable<TreeNode>{
         }
         return 0;
     }
+
+    public TreeNode getLeft() { return left;}
+    public TreeNode getRight() { return right;}
+    public int getData() {return data;}
 
 }

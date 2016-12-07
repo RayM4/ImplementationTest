@@ -1,8 +1,5 @@
 package DataStructure;
 
-/**
- * Created by ray on 12/3/2016.
- */
 public class LinkList {
     protected Node head;
 

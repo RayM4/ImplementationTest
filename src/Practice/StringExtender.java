@@ -1,8 +1,6 @@
 package Practice;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by ray on 12/3/2016.
@@ -35,6 +33,31 @@ public class StringExtender {
         Arrays.sort(b1);
 
         return Arrays.equals(a1, b1);
+    }
+
+    public static boolean isAnagramNoSort(String a, String b) {
+        if (a.length() != b.length())
+            return false;
+
+        char[] a1 = a.toLowerCase().toCharArray();
+        char[] b1 = b.toLowerCase().toCharArray();
+
+        Map<Character, Integer> mapA = new HashMap<>();
+        Map<Character, Integer> mapB = new HashMap<>();
+
+        for (int i = 0; i < a1.length; i++) {
+            mapCharCount(mapA, a1[i]);
+            mapCharCount(mapB, b1[i]);
+        }
+
+        return mapA.equals(mapB);
+    }
+
+    private static void mapCharCount(Map<Character, Integer> map, char c) {
+        if (map.keySet().contains(c))
+            map.put(c, map.get(c)+1);
+        else
+            map.put(c, 1);
     }
 
     public static boolean syntaxChecker(String pattern) {
