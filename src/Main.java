@@ -149,6 +149,8 @@ public class Main {
         } catch (NullPointerException e) {
             System.out.println("BFS returned null - " + e);
         }
+
+        System.out.println("---------------------------");
     }
 
 

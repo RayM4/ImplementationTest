@@ -8,23 +8,25 @@ import java.util.*;
 public class Search {
 
     public static TreeNode DFS(BinaryTree tree, int data) {
-        Stack<TreeNode> stack = new Stack<>();
+//        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
         Set<Integer> visited = new HashSet<>();
 
-        stack.push(tree.getHead());
+        stack.addFirst(tree.getHead());
 
-        while(!stack.empty()) {
-            TreeNode currentNode = stack.pop();
+        while(!stack.isEmpty()) {
+//            TreeNode currentNode = stack.pop();
+            TreeNode currentNode = stack.removeFirst();
             visited.add(currentNode.getData());
 
             if (currentNode.getData() == data)
                 return currentNode;
 
             if (currentNode.getLeft() != null && !visited.contains(currentNode.getLeft().getData()))
-                stack.add(currentNode.getLeft());
+                stack.addFirst(currentNode.getLeft());
 
             if (currentNode.getRight() != null && !visited.contains(currentNode.getRight().getData()))
-                stack.add(currentNode.getRight());
+                stack.addFirst(currentNode.getRight());
 
             visited.remove(currentNode.getData());
         }
@@ -33,23 +35,24 @@ public class Search {
     }
 
     public static TreeNode BFS(BinaryTree tree, int data) {
-        Queue<TreeNode> queue = new LinkedList<>();
+//        Queue<TreeNode> queue = new LinkedList<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
         Set<Integer> visited = new HashSet<>();
 
-        queue.offer(tree.getHead());
+        queue.offerFirst(tree.getHead());
 
         while(!queue.isEmpty()) {
-            TreeNode currentNode = queue.poll();
+            TreeNode currentNode = queue.pollFirst();
             visited.add(currentNode.getData());
 
             if (currentNode.getData() == data)
                 return currentNode;
 
             if (currentNode.getLeft() != null && !visited.contains(currentNode.getLeft().getData()))
-                queue.offer(currentNode.getLeft());
+                queue.offerFirst(currentNode.getLeft());
 
             if (currentNode.getRight() != null && !visited.contains(currentNode.getRight().getData()))
-                queue.offer(currentNode.getRight());
+                queue.offerFirst(currentNode.getRight());
         }
 
         return null;
