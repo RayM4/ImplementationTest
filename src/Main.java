@@ -1,6 +1,7 @@
 import DataStructure.BinaryTree;
 import DataStructure.CircularLinkList;
 import DataStructure.LinkList;
+import DataStructure.TreeNode;
 import MyAlgorithm.Search;
 import MyAlgorithm.Sort;
 
@@ -120,33 +121,33 @@ public class Main {
         tree.printTree();
 
         System.out.println("\nSearch - DFS");
-        int dfsSuccess1 = Search.DFS(tree, 35).getData();
-        int dfsSuccess2 = Search.DFS(tree, 49).getData();
-        int dfsSuccess3 = Search.DFS(tree, 100).getData();
-        System.out.println(dfsSuccess1);
-        System.out.println(dfsSuccess2);
-        System.out.println(dfsSuccess3);
+        TreeNode dfsSuccess1 = Search.DFS(tree, 35);
+        TreeNode dfsSuccess2 = Search.DFS(tree, 49);
+        TreeNode dfsSuccess3 = Search.DFS(tree, 100);
 
         try {
-            int dfsFail1 = Search.DFS(tree, 99).getData();
-            System.out.println(dfsFail1);
+            System.out.println(dfsSuccess1.getData());
+            System.out.println(dfsSuccess2.getData());
+            System.out.println(dfsSuccess3.getData());
+            TreeNode dfsFail1 = Search.DFS(tree, 99);
+            System.out.println(dfsFail1.getData());
         } catch (NullPointerException e) {
-            System.out.println("DFS returned null");
+            System.out.println("DFS returned null - " + e);
         }
 
         System.out.println("\nSearch - BFS");
-        int bfsSuccess1 = Search.BFS(tree, 35).getData();
-        int bfsSuccess2 = Search.BFS(tree, 49).getData();
-        int bfsSuccess3 = Search.BFS(tree, 100).getData();
-        System.out.println(bfsSuccess1);
-        System.out.println(bfsSuccess2);
-        System.out.println(bfsSuccess3);
+        TreeNode bfsSuccess1 = Search.BFS(tree, 35);
+        TreeNode bfsSuccess2 = Search.BFS(tree, 49);
+        TreeNode bfsSuccess3 = Search.BFS(tree, 100);
 
         try {
-            int bfsFail1 = Search.BFS(tree, 99).getData();
-            System.out.println(bfsFail1);
+            System.out.println(bfsSuccess1.getData());
+            System.out.println(bfsSuccess2.getData());
+            System.out.println(bfsSuccess3.getData());
+            TreeNode bfsFail1 = Search.BFS(tree, 99);
+            System.out.println(bfsFail1.getData());
         } catch (NullPointerException e) {
-            System.out.println("BFS returned null");
+            System.out.println("BFS returned null - " + e);
         }
     }
 
