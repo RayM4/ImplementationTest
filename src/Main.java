@@ -3,8 +3,6 @@ import DataStructure.CircularLinkList;
 import DataStructure.LinkList;
 import MyAlgorithm.Sort;
 
-import java.util.ArrayList;
-
 public class Main {
 
     final static int DATA_SET[] = {
@@ -89,14 +87,23 @@ public class Main {
 
         printArray(myBubbleSort);
 
+        System.out.println("---------------------------");
+
         System.out.println("QuickSort");
         int[] unsortedArray2 = { 10, 5, 11, 16, 7, 15, 49, 19 };
         printArray(unsortedArray2);
 
-        mySort.RandQSort(unsortedArray2, 0, unsortedArray2.length-1);
+        mySort.normalQSort(unsortedArray2, 0, unsortedArray2.length-1);
         printArray(unsortedArray2);
 
+        System.out.println("---------------------------");
 
+        System.out.println("QuickSort - Random Pivot");
+        int[] unsortedArray3 = { 10, 5, 11, 16, 7, 15, 49, 19 };
+        printArray(unsortedArray3);
+
+        mySort.randQSort(unsortedArray3, 0, unsortedArray3.length-1);
+        printArray(unsortedArray3);
     }
 
 }
