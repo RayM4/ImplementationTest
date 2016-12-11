@@ -3,23 +3,24 @@ package Practice;
 import DataStructure.LinkList;
 import DataStructure.Node;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by ray on 12/10/2016.
  */
 public class NumberPuzzles {
-    public static int[] twoSum(int[] nums, int target) {
-        int[] arr = {-1,-1};
-        for (int i = 0; i < nums.length-1; i++) {
-            for (int j = i+1; j < nums.length;j++) {
-                if (nums[i] + nums[j]==target) {
-                    arr[0] = i;
-                    arr[1] = j;
-                    return arr;
-                }
+    public int[] twoSum(int[] nums, int target) {
+        // finds indicies of array where values add up to target
+        Map<Integer, Integer> map = new HashMap<>();
 
-            }
+        for (int i = 0; i < nums.length; i++) {
+            int value = target - nums[i];
+            if (map.containsKey(value) && map.get(value) != i)
+                return new int[] {i, map.get(value)};
+            map.put(nums[i], i);
         }
-        return arr;
+        return new int[] {-1, -1};
     }
 
     public Node addTwoNumbers(Node l1, Node l2) {
