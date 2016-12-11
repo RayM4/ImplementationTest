@@ -92,4 +92,24 @@ public class StringExtender {
         return stack.empty();
     }
 
+    public static int lengthOfLongestSubstring(String s) {
+        int longest = 1;
+        if (s.length() > longest)
+            longest=1;
+        char[] arr = s.toCharArray();
+        for (int i = 0; i < arr.length-1; i++) {
+            Set<Character> set = new HashSet<>();
+            set.add(arr[i]);
+
+            for (int j=i+1; j < arr.length; j++) {
+                if (!set.add(arr[j]))
+                    j = arr.length;
+            }
+            if (set.size() > longest)
+                longest = set.size();
+        }
+        return longest;
+
+    }
+
 }

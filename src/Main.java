@@ -1,7 +1,4 @@
-import DataStructure.BinaryTree;
-import DataStructure.CircularLinkList;
-import DataStructure.LinkList;
-import DataStructure.TreeNode;
+import DataStructure.*;
 import MyAlgorithm.Search;
 import MyAlgorithm.Sort;
 
@@ -41,6 +38,7 @@ public class Main {
         System.out.print("\n");
     }
 
+
     //TEST (Not going to write test cases)
     private static void test_DataStructures() {
         System.out.println("------");
@@ -77,6 +75,8 @@ public class Main {
         System.out.println(Practice.StringExtender.isAnagramNoSort("Listen", "Silent"));
         System.out.println(Practice.StringExtender.isAnagramNoSort("Witch", "Wizard"));
 
+        System.out.println("-----------");
+        System.out.println(Practice.StringExtender.lengthOfLongestSubstring("abcabcbb"));
 //        String a = "abc";
 //        String a2 = "bbbb";
 //        String b = "baikl;ksdlaksla";
@@ -116,6 +116,14 @@ public class Main {
         printArray(unsortedArray3);
 
         System.out.println("---------------------------");
+        System.out.println("MergeSort");
+        int[] unsortedArray4 = { 10, 5, 11, 16, 7, 15, 49, 19 };
+        printArray(unsortedArray4);
+
+        Sort.mergeSort(unsortedArray4, 0, unsortedArray4.length-1);
+        printArray(unsortedArray4);
+
+        System.out.println("---------------------------");
         BinaryTree tree = new BinaryTree(50);
         addToTree(tree);
         tree.printTree();
@@ -150,8 +158,9 @@ public class Main {
             System.out.println("BFS returned null - " + e);
         }
 
-        System.out.println("---------------------------");
     }
 
+    private static void test_puzzles() {
 
+    }
 }
