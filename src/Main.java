@@ -39,7 +39,7 @@ public class Main {
     }
 
 
-    //TEST (Not going to write test cases)
+    //TEST (testing framework eventually)
     private static void test_DataStructures() {
         System.out.println("------");
 
