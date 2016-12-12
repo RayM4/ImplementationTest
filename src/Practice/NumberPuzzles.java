@@ -47,4 +47,29 @@ public class NumberPuzzles {
         }
         return curr;
     }
+
+    public int reverseInt(int x) {
+        //reverse an int, in case of overflow return 0
+        boolean neg = false;
+        String strX;
+        if (x < 0) {
+            strX = Integer.toString((int)((x)*-1.0));
+            neg = true;
+        } else {
+            strX = Integer.toString(x);
+        }
+        String value = "";
+        for (int i = strX.length()-1; i > -1; i--)
+            value = value + strX.charAt(i);
+
+        double returnValue = Double.parseDouble(value);
+        if (neg)
+            returnValue = (returnValue) * -1.0;
+        if (returnValue >= Integer.MAX_VALUE)
+            return 0;
+        else if (returnValue <= Integer.MIN_VALUE)
+            return 0;
+        else
+            return (int) returnValue;
+    }
 }

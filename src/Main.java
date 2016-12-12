@@ -12,7 +12,12 @@ public class Main {
     public static void main(String[] args) {
 //        test_Strings();
 //        test_DataStructures();
-        test_Algorithms();
+//        test_Algorithms();
+        System.out.println((-2147483648+1)*-1);
+    }
+
+    public static boolean test(int x) {
+        return (x < 0);
     }
 
     //Helpers
@@ -64,7 +69,7 @@ public class Main {
 
     public static void test_Strings() {
         System.out.println("Palindrome");
-        System.out.println(Practice.StringExtender.isPalindrome("Eevee"));
+        System.out.println(Practice.StringExtender.isPalindrome("bab"));
         System.out.println(Practice.StringExtender.isPalindrome("Earth"));
         System.out.println(Practice.StringExtender.isPalindrome("aaaaaaaPaaaaaaa"));
 
