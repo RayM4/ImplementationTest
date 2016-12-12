@@ -9,11 +9,11 @@ public class Main {
         50, 25, 75, 15, 35, 65, 100, 5, 22, 49, 33
     };
 
+    //Enable tests
     public static void main(String[] args) {
 //        test_Strings();
 //        test_DataStructures();
 //        test_Algorithms();
-        System.out.println((-2147483648+1)*-1);
     }
 
     public static boolean test(int x) {

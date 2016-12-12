@@ -1,7 +1,5 @@
 package MyAlgorithm;
 
-import a.j.m.P;
-
 import java.util.Random;
 
 public class Sort {
