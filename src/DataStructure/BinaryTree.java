@@ -54,6 +54,30 @@ public class BinaryTree {
         return false;
     }
 
+    public boolean addRecursive(int data) {
+        if (!values.contains(data)) {
+            TreeNode node = new TreeNode(data);
+            addToTree(head, node);
+            return true;
+        }
+        return false;
+    }
+
+    private void addToTree(TreeNode prev, TreeNode n) {
+        if (n.getData() < prev.getData()) {
+            if (prev.getLeft() == null)
+                prev.left = n;
+            else
+                addToTree(prev.getLeft(), n);
+        } else {
+            if (prev.getRight() == null)
+                prev.right = n;
+            else
+                addToTree(prev.getRight(), n);
+        }
+    }
+
+
     public Integer remove(int data) {
         if (values.contains(data)) {
             TreeNode node = new TreeNode(data);

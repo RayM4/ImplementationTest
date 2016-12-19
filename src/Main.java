@@ -2,6 +2,8 @@ import DataStructure.*;
 import MyAlgorithm.Search;
 import MyAlgorithm.Sort;
 
+import java.util.Arrays;
+
 
 public class Main {
 
@@ -12,7 +14,7 @@ public class Main {
     //Enable tests
     public static void main(String[] args) {
 //        test_Strings();
-//        test_DataStructures();
+        test_DataStructures();
 //        test_Algorithms();
     }
 
@@ -23,7 +25,7 @@ public class Main {
     //Helpers
     private static void addToTree(BinaryTree tree) {
         for (int i : DATA_SET)
-            tree.add(i);
+            tree.addRecursive(i);
     }
 
     private static void addToLinkList(LinkList list) {
