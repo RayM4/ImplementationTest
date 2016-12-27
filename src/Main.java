@@ -2,6 +2,8 @@ import DataStructure.*;
 import MyAlgorithm.Search;
 import MyAlgorithm.Sort;
 
+import java.util.Arrays;
+
 
 public class Main {
 
@@ -9,16 +11,21 @@ public class Main {
         50, 25, 75, 15, 35, 65, 100, 5, 22, 49, 33
     };
 
+    //Enable tests
     public static void main(String[] args) {
 //        test_Strings();
-//        test_DataStructures();
-        test_Algorithms();
+        test_DataStructures();
+//        test_Algorithms();
+    }
+
+    public static boolean test(int x) {
+        return (x < 0);
     }
 
     //Helpers
     private static void addToTree(BinaryTree tree) {
         for (int i : DATA_SET)
-            tree.add(i);
+            tree.addRecursive(i);
     }
 
     private static void addToLinkList(LinkList list) {
@@ -64,7 +71,7 @@ public class Main {
 
     public static void test_Strings() {
         System.out.println("Palindrome");
-        System.out.println(Practice.StringExtender.isPalindrome("Eevee"));
+        System.out.println(Practice.StringExtender.isPalindrome("bab"));
         System.out.println(Practice.StringExtender.isPalindrome("Earth"));
         System.out.println(Practice.StringExtender.isPalindrome("aaaaaaaPaaaaaaa"));
 

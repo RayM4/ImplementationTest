@@ -2,9 +2,6 @@ package Practice;
 
 import java.util.*;
 
-/**
- * Created by ray on 12/3/2016.
- */
 public class StringExtender {
 
     public static boolean isPalindrome(String str) {
