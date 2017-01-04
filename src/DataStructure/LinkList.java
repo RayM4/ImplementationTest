@@ -1,5 +1,9 @@
 package DataStructure;
 
+/*
+Implementation of a linked list with head being the latest element
+ */
+
 public class LinkList {
     protected Node head;
 
