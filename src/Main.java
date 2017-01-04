@@ -1,6 +1,7 @@
 import DataStructure.*;
 import MyAlgorithm.Search;
 import MyAlgorithm.Sort;
+import Test.Test_ClinkList;
 
 import java.util.Arrays;
 
@@ -38,6 +39,11 @@ public class Main {
             list.add(i);
     }
 
+    private static void addToLinkList(CLinkList list) {
+        for (int i : DATA_SET)
+            list.add(i);
+    }
+
     private static void printArray(int[] arr) {
         System.out.println("Array:");
         for (int i : arr)
@@ -67,6 +73,21 @@ public class Main {
         CircularLinkList circle = new CircularLinkList();
         addToLinkList(circle);
         circle.printList();
+
+        System.out.println("------ CLinkList");
+        CLinkList clist = new CLinkList();
+        addToLinkList(clist);
+        clist.printList();
+        clist.remove(100);
+        clist.remove(22);
+        clist.remove(50);
+        clist.remove(25);
+        System.out.println("------ removing");
+        System.out.println("size: "+clist.length());
+        clist.printList();
+        System.out.println("-- test cases:");
+        Test_ClinkList.run();
+
     }
 
     public static void test_Strings() {
