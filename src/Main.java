@@ -17,6 +17,7 @@ public class Main {
 //        test_Strings();
         test_DataStructures();
 //        test_Algorithms();
+        test_puzzles();
     }
 
     public static boolean test(int x) {
@@ -201,6 +202,10 @@ public class Main {
     }
 
     private static void test_puzzles() {
-
+        System.out.println("Fibonacci");
+        int fib1 = Practice.DpPuzzles.fibonacci(10);
+        System.out.println("Fibonacci Normal: " + fib1);
+        int fib2 = Practice.DpPuzzles.dpFibonacci(10);
+        System.out.println("Fibonacci Normal: " + fib2);
     }
 }
