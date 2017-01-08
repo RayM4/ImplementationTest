@@ -44,6 +44,11 @@ public class Main {
             list.add(i);
     }
 
+    private static void addToLinkList(DoublyLinkedList list) {
+        for (int i : DATA_SET)
+            list.add(i);
+    }
+
     private static void printArray(int[] arr) {
         System.out.println("Array:");
         for (int i : arr)
@@ -88,6 +93,13 @@ public class Main {
         System.out.println("-- test cases:");
         Test_ClinkList.run();
 
+        System.out.println("------------- DLink List");
+        DoublyLinkedList dlist = new DoublyLinkedList();
+        addToLinkList(dlist);
+        dlist.printList();
+        System.out.println("reversing dlist");
+        dlist.reverse();
+        dlist.printList();
     }
 
     public static void test_Strings() {

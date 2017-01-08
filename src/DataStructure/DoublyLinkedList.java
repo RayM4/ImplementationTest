@@ -60,4 +60,28 @@ public class DoublyLinkedList {
         }
         return null;
     }
+
+    public void reverse() {
+        DNode originalTail = this.tail;
+        DNode originalHead = this.head;
+        DNode current = this.tail;
+        while (current != null) {
+            DNode next = current.getNext();
+            current.setNext(current.getPrev());
+            current.setPrev(next);
+            current = current.getNext();
+        }
+        this.head = originalTail;
+        this.tail = originalHead;
+    }
+
+    public void printList() {
+        System.out.print("[ ");
+        DNode current = this.head;
+        while(current != null) {
+            System.out.print(current.getData() + " ");
+            current = current.getNext();
+        }
+        System.out.print("] \n");
+    }
 }
