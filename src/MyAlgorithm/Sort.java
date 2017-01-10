@@ -76,22 +76,32 @@ public class Sort {
     //merge sort
     public static void mergeSort(int[] arr, int low, int high) {
         if (low < high) {
+            //find midpoint
             int mid = low + ((high-low) / 2);
+            //split left subArray
             mergeSort(arr, low, mid);
+            //split right subArray
             mergeSort(arr, mid+1, high);
+            //merge both subArrays
             merge(arr, low, mid, high);
         }
     }
 
     private static void merge(int[] arr, int low, int mid, int high) {
-        int[] temp = new int[arr.length];
-        System.arraycopy(arr,0,temp, 0, arr.length);
+        int[] temp = copyArr(arr);
 
+        //left subArray pointer
         int i = low;
-        int j = mid+1;
+        //new subArray pointer
         int k = low;
+        //right subArray pointer
+        int j = mid+1;
 
-        while(i<= mid && j <= high) {
+        while (i <= mid && j <= high) {
+            //if left subArray element is less than 
+            //or equal to right subArray element
+            //set left element to merged subArray
+            //else set right element to merged subArray
             if (temp[i] <= temp[j]) {
                 arr[k] = temp[i];
                 i++;
@@ -99,10 +109,13 @@ public class Sort {
                 arr[k] = temp[j];
                 j++;
             }
+            //iterate pointing to original array
             k++;
         }
 
-        while(i <= mid) {
+        //if elements on left remain dump them to
+        //the right of new merged array
+        while (i <= mid) {
             arr[k] = temp[i];
             k++;
             i++;
@@ -117,5 +130,12 @@ public class Sort {
         arr[b] = hold;
     }
 
+    //copy array
+    private static int[] copyArr(int[] arr) {
+        int[] temp = new int[arr.length];
+        for (int i = 0; i < arr.length;i++)
+            temp[i] = arr[i];
+        return temp;
+    }
 }
 
