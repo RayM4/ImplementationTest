@@ -15,9 +15,9 @@ public class Main {
     //Enable tests
     public static void main(String[] args) {
 //        test_Strings();
-        test_DataStructures();
-//        test_Algorithms();
-        test_puzzles();
+//        test_DataStructures();
+        test_Algorithms();
+//        test_puzzles();
     }
 
     public static boolean test(int x) {
