@@ -12,21 +12,20 @@ public class Search {
         Deque<TreeNode> stack = new ArrayDeque<>();
         Set<Integer> visited = new HashSet<>();
 
-        stack.addFirst(tree.getHead());
+        stack.push(tree.getHead());
 
         while(!stack.isEmpty()) {
-//            TreeNode currentNode = stack.pop();
-            TreeNode currentNode = stack.removeFirst();
+            TreeNode currentNode = stack.pop();
             visited.add(currentNode.getData());
 
             if (currentNode.getData() == data)
                 return currentNode;
 
             if (currentNode.getLeft() != null && !visited.contains(currentNode.getLeft().getData()))
-                stack.addFirst(currentNode.getLeft());
+                stack.push(currentNode.getLeft());
 
             if (currentNode.getRight() != null && !visited.contains(currentNode.getRight().getData()))
-                stack.addFirst(currentNode.getRight());
+                stack.push(currentNode.getRight());
 
             visited.remove(currentNode.getData());
         }
@@ -39,20 +38,20 @@ public class Search {
         Deque<TreeNode> queue = new ArrayDeque<>();
         Set<Integer> visited = new HashSet<>();
 
-        queue.offerFirst(tree.getHead());
+        queue.offer(tree.getHead());
 
         while(!queue.isEmpty()) {
-            TreeNode currentNode = queue.pollFirst();
+            TreeNode currentNode = queue.poll();
             visited.add(currentNode.getData());
 
             if (currentNode.getData() == data)
                 return currentNode;
 
             if (currentNode.getLeft() != null && !visited.contains(currentNode.getLeft().getData()))
-                queue.offerFirst(currentNode.getLeft());
+                queue.offer(currentNode.getLeft());
 
             if (currentNode.getRight() != null && !visited.contains(currentNode.getRight().getData()))
-                queue.offerFirst(currentNode.getRight());
+                queue.offer(currentNode.getRight());
         }
 
         return null;
