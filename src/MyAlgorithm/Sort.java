@@ -24,21 +24,30 @@ public class Sort {
     public static void normalQSort(int[] arr, int left, int right) {
         if (left < right) {
             int idx = normalPartition(arr, left, right);
+            //sort subArray left of pivot
             normalQSort(arr, left, idx - 1);
+            //sort subArray right of pivot
             normalQSort(arr, idx + 1, right);
         }
     }
 
     private static int normalPartition(int[] arr, int left, int right) {
+        //pivot value
         int pivot = arr[right];
+        //pivot's index
         int hold = left;
+        //iterate through unsorted
         for (int i = left; i < right; i++) {
+            //if value less than pivot value
             if (arr[i] <= pivot) {
+                //move value to left side
                 swap(arr, hold, i);
                 hold++;
             }
         }
+        //put the pivot value at the end of the sorted subarray
         swap(arr, hold, right);
+        //return index of the pivot
         return hold;
     }
 
